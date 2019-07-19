@@ -1,0 +1,30 @@
+page-sumario-lista {
+    ion-content {
+        background: $backgroundAzul;
+        font-family: 'FuturaStd-Book';
+        font-size: 1.2em;
+        text-align: center;
+    }
+    .icone{
+        font-size: 2em;
+        margin-left: 5%;
+    }
+
+    .tabelaBg1{
+        ion-row{
+            border-bottom: 1px solid 33ccff;
+            background: #33ccff;
+            color: black;
+            padding-left: 2%;
+        }
+    }
+
+    .tabelaBg2{
+        ion-row{
+            border-bottom: 1px solid #0585b0;
+            background: #0585b0;
+            color: white;
+            padding-left: 2%;
+        }
+    }
+}

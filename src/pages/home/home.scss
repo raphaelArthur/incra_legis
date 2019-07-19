@@ -1,3 +1,16 @@
-page-home {
+.ios, .md {
+    page-home {
+        ion-content {
+            background: $backgroundAzul;
+        }
+        .tabela{
+            position: relative;
+            margin-top: 50%;
+        }
 
+        .icone{
+            font-size: 2em;
+            // color: white;
+        }
+    }
 }

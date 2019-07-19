@@ -1,0 +1,33 @@
+page-apresentacao {
+    
+    background-image: $backgroundAzul;
+    // ion-content {
+    //     background: $backgroundAzul;
+    // }
+    .texto{
+        h1{
+            text-align: center;
+            font-family: 'FuturaStd-Heavy';
+            font-size: 1.9rem;
+        }
+
+        h2{
+            text-align: center;
+            font-family: 'FuturaStd-Heavy';
+            font-size: 1.7rem;
+        }
+
+        p{
+            
+            text-align: left;
+            font-family: 'FuturaStd-Book';
+        }
+    }
+
+    .assinatura{
+        p{
+            text-align: center;
+            font-family: 'FuturaStd-Book';
+        }
+    }
+}

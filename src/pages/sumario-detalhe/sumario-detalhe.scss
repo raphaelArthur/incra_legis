@@ -1,0 +1,19 @@
+page-sumario-detalhe {
+    ion-content {
+        background: $backgroundAzul;
+    }
+
+    .titulo{
+        font-family: 'FuturaStd-Bold';
+        font-size: 1.4em;
+    }
+
+    .label{
+        font-family: 'FuturaStd-Book';
+        font-size: 1.2em;
+    }
+    a:link, a:visited{
+        color: orange;
+        font-size: 1.2em;
+    }
+}

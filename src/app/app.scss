@@ -14,3 +14,52 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.alert-ios .alert-radio-label{ white-space: pre-line;}
+.alert-md .alert-radio-label{ white-space: pre-line;}
+.alert-wp .alert-radio-label{ white-space: pre-line;}
+
+body {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  }
+  
+  @font-face {
+    font-family: FuturaStd-Medium;
+    src: url('../assets/fonts/Futura-Std-Medium.ttf');
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: FuturaStd-Bold;
+    src: url('../assets/fonts/Futura-Std-Bold.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: FuturaStd-Light;
+    src: url('../assets/fonts/Futura-Std-Light.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: FuturaStd-Book;
+    src: url('../assets/fonts/Futura-Std-Book.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: FuturaStd-Heavy;
+    src: url('../assets/fonts/Futura-Std-Heavy.ttf');
+    font-weight: bolder;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: ArialMT;
+    src: url('../assets/fonts/ArialMT.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
