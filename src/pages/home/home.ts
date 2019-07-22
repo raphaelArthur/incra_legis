@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, Nav, NavParams } from 'ionic-angular';
+import { IonicPage, Nav, NavParams, AlertController  } from 'ionic-angular';
 import { Http } from '@angular/http';
 import * as papa from 'papaparse';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
+
 // import { Pages } from '../pages';
 import { Lei } from '../../models/modelo_lei';
 
@@ -37,13 +40,37 @@ export class HomePage {
 
   lista_geral = [];
 
-  constructor(public navCtrl: Nav, public navParams: NavParams, public http: Http,) {
+  constructor(public navCtrl: Nav, public navParams: NavParams, public http: Http, public alertCtrl: AlertController, private iab: InAppBrowser) {
     this.num_tipo = 0;
   }
 
   ionViewDidLoad() {
     this.readCsvData();
 
+  }
+
+  downloadRevista() {
+    const confirm = this.alertCtrl.create({
+      title: 'Deseja fazer o download da "Revista de Direito Agrário"?',
+      // message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+      buttons: [
+        {
+          text: 'Não',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Sim',
+          handler: () => {
+            console.log('Agree clicked');
+            const browser = this.iab.create('http://www.incra.gov.br/sites/default/files/uploads/publicacoes/revista_de_direito_agrario_-_no_22_-_ed._especial_30_anos_da_cf_de_1988_-_web.pdf');
+            browser.show();
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
   public readCsvData() {

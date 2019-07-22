@@ -1,0 +1,22 @@
+<!--
+  Generated template for the ModalInfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header (click)="fechar()">
+  <ion-navbar>
+    <ion-title>{{info.nome}}</ion-title>
+    <ion-buttons end >
+      <button ion-button icon-only >
+          <ion-icon name="close" item-end></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <img src="{{info.path_img}}">
+  <br>
+  <p>{{info.texto}}</p>
+</ion-content>

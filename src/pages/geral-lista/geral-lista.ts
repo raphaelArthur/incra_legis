@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, Nav, NavParams } from 'ionic-angular';
+import { IonicPage, Nav, NavParams, ModalController } from 'ionic-angular';
 import { Pages } from '../pages';
+import { LinkExternoProvider } from '../../providers/link-externo/link-externo';
 import { FiltroProvider } from '../../providers/filtro/filtro';
 
 import { FormControl } from "@angular/forms";
@@ -26,9 +27,12 @@ export class GeralListaPage {
   public searchControl: FormControl;
   public items: any;
   public titulo:string;
-  searching: any = false;
+  public searching: any = false;
 
-  constructor(public navCtrl: Nav, public navParams: NavParams, private dataService:FiltroProvider) {
+  public conteudo_modal:any;
+  public flag_pag_geral:boolean;
+
+  constructor(public navCtrl: Nav, public navParams: NavParams, private dataService:FiltroProvider, public link:LinkExternoProvider, public modalCtrl: ModalController) {
     // this.array_leis = this.navParams.get('array_leis');
     this.lista_geral = this.navParams.get('lista_geral');
     let titulo_param = this.navParams.get('tipo');
@@ -37,6 +41,17 @@ export class GeralListaPage {
     // console.log(this.array_leis);
     this.dataService.setLista(this.lista_geral);
     this.searchControl = new FormControl();
+
+    this.conteudo_modal = this.link.getItem(this.titulo);
+
+    if(this.titulo == "GERAL")
+    {
+      this.flag_pag_geral = true;
+    }
+    else
+    {
+      this.flag_pag_geral = false;
+    }
   }
 
   ionViewDidLoad() {
@@ -71,5 +86,11 @@ export class GeralListaPage {
     // };
 
     this.navCtrl.push(Pages.SumarioDetalhe, {lei:lei});
+  }
+
+  public mostrar_info()
+  {
+    let modal = this.modalCtrl.create('ModalInfoPage', {info:this.conteudo_modal});
+    modal.present();
   }
 }

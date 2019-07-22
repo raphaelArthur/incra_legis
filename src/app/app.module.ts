@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { FiltroProvider } from '../providers/filtro/filtro';
 import { LinkExternoProvider } from '../providers/link-externo/link-externo';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @NgModule({
   declarations: [
@@ -16,11 +17,13 @@ import { LinkExternoProvider } from '../providers/link-externo/link-externo';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    // InAppBrowser
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    // InAppBrowser
     
   ],
   providers: [
@@ -28,7 +31,8 @@ import { LinkExternoProvider } from '../providers/link-externo/link-externo';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FiltroProvider,
-    LinkExternoProvider
+    LinkExternoProvider,
+    InAppBrowser
   ]
 })
 export class AppModule {}

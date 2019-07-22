@@ -7,10 +7,19 @@
 <ion-header>
   <ion-navbar>
     <ion-title>{{titulo}}</ion-title>
+    <ion-buttons end *ngIf="!flag_pag_geral">
+      <button ion-button icon-only (click)="mostrar_info()">
+          <ion-icon name="information-circle" item-end></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content >
+<ion-content>
+    <div class="cabecalho" *ngIf="!flag_pag_geral">
+      <img src="{{conteudo_modal[0].path_img}}">
+    </div>
+
   <ion-grid no-padding>
     <ion-searchbar
       [formControl]="searchControl"

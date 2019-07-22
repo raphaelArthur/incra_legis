@@ -12,7 +12,7 @@
 
 <ion-content>
   <div class="cabecalho">
-    <img src="../../assets/imgs/logo_incralegis.jpg">
+    <img src="assets/imgs/logo_incralegis.jpg">
   </div>
   <div class="tabela">
     <ion-grid padding >
@@ -32,6 +32,14 @@
         <ion-col (click)="navegar('UnbPage')">
           <ion-row justify-content-around class="icone"><ion-icon name="at"></ion-icon></ion-row>
           <ion-row justify-content-around>UnB</ion-row>
+        </ion-col>
+        <ion-col (click)="downloadRevista()">
+          <!-- <a href="http://www.incra.gov.br/sites/default/files/uploads/publicacoes/revista_de_direito_agrario_-_no_22_-_ed._especial_30_anos_da_cf_de_1988_-_web.pdf" target="_blank">
+            <ion-row justify-content-around class="icone"><ion-icon name="book"></ion-icon></ion-row>
+            <ion-row justify-content-around>Revista</ion-row>
+          </a> -->
+          <ion-row justify-content-around class="icone"><ion-icon name="book"></ion-icon></ion-row>
+          <ion-row justify-content-around>Revista</ion-row>
         </ion-col>
       </ion-row>
     </ion-grid>
