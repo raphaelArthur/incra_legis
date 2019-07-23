@@ -1,6 +1,6 @@
 page-geral-lista {
+    background: rgb(166, 219, 166);
     ion-content {
-        background: $backgroundAzul;
         font-family: 'FuturaStd-Book';
         font-size: 1.2em;
         text-align: center;
@@ -12,8 +12,8 @@ page-geral-lista {
 
     .tabelaBg1{
         ion-row{
-            border-bottom: 1px solid 33ccff;
-            background: #33ccff;
+            // border-bottom: 1px solid 33ccff;
+            // background: #33ccff;
             color: black;
             padding-left: 2%;
         }
@@ -21,8 +21,8 @@ page-geral-lista {
 
     .tabelaBg2{
         ion-row{
-            border-bottom: 1px solid #0585b0;
-            background: #0585b0;
+            border-bottom: 2px solid #6e3d35;
+            background: rgb(58, 126, 58);
             color: white;
             padding-left: 2%;
         }

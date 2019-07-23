@@ -1,8 +1,22 @@
 .ios, .md {
     page-home {
+        background-color: rgb(215, 235, 215);
+        font-family: 'FuturaStd-Book';
+        text-align: center;
         ion-content {
-            background: $backgroundAzul;
+            // background: $backgroundAzul;
         }
+
+        .card-md {
+            background: rgb(238, 255, 238);
+        }
+
+        .card-header-md {
+            font-size: 2.6rem;
+
+        }
+
+
         .tabela{
             position: relative;
             margin-top: 50%;

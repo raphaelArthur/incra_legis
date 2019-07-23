@@ -1,9 +1,13 @@
 page-apresentacao {
-    
-    background-image: $backgroundAzul;
+    background: rgb(166, 219, 166);
+    // background-image: $backgroundAzul;
     // ion-content {
     //     background: $backgroundAzul;
     // }
+    .just{
+        text-align: justify !important;
+        font-family: 'FuturaStd-Book';
+    }
     .texto{
         h1{
             text-align: center;
@@ -29,5 +33,11 @@ page-apresentacao {
             text-align: center;
             font-family: 'FuturaStd-Book';
         }
+    }
+
+    a:link, a:visited{
+        color: brown;
+        text-decoration:none; 
+        // font-size: 1.2em;
     }
 }
