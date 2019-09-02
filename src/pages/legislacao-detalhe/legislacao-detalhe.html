@@ -10,8 +10,22 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-grid>
+<ion-content>
+  <ion-grid no-padding class="background">
+    <ion-row>
+      <ion-col class="titulo">{{lei_detalhe.conteudo.lei}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="subtitulo">{{lei_detalhe.conteudo.ato}}</ion-col>
+    </ion-row>
+    <ion-row class="icones">
+      <ion-col offset-10 col-1>
+          <a href="{{lei_detalhe.conteudo.link}}" target="_blank">
+            <ion-icon name="download"></ion-icon></a></ion-col>
+      <ion-col col-1 (click)="compartilhar(lei_detalhe.conteudo.link)"><ion-icon name="share"></ion-icon></ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- <ion-grid>
     <ion-row>
       <ion-col class="titulo">LEIS</ion-col>
     </ion-row>
@@ -26,15 +40,28 @@
       <ion-col class="label">{{lei_detalhe.conteudo.ato}}</ion-col>
     </ion-row>
     <br><br>
-    <ion-row class="titulo2">
+  </ion-grid> -->
+    <!-- <ion-row class="titulo2">
       <ion-col><b>TIPO</b></ion-col>
       <ion-col><b>DESCRIÇÃO</b></ion-col>
     </ion-row>
-    <ion-row><br></ion-row>
-    <ion-row *ngFor="let elem of lei_detalhe.conteudo.tipo; let i=index" class="tipo_desc" align-items-center>
+    <ion-row><br></ion-row> -->
+    <ion-grid padding>
+      <ion-row *ngFor="let elem of lei_detalhe.conteudo.tipo; let i=index" align-items-center>
+        <ion-card >
+          <ion-card-header>
+            <b>{{lei_detalhe.conteudo.tipo[i]}}</b>
+          </ion-card-header>
+          <ion-card-content>
+            {{lei_detalhe.conteudo.descricao[i]}} 
+          </ion-card-content>
+        </ion-card>
+      </ion-row>
+      </ion-grid>
+    <!-- <ion-row *ngFor="let elem of lei_detalhe.conteudo.tipo; let i=index" class="tipo_desc" align-items-center>
       <ion-col>{{lei_detalhe.conteudo.tipo[i]}}</ion-col>
       <ion-col>{{lei_detalhe.conteudo.descricao[i]}}</ion-col>
-    </ion-row>
+    </ion-row> -->
     <!-- <ion-row>
       <ion-col class="titulo">TIPO</ion-col>
     </ion-row>
@@ -49,7 +76,7 @@
       <ion-col class="label">{{lei_detalhe.conteudo.descricao}}</ion-col>
     </ion-row>
     <br><br> -->
-    <br><br><br>
+    <!-- <br><br><br>
     <ion-row>
       <ion-col class="titulo">DOCUMENTO</ion-col>
     </ion-row>
@@ -59,5 +86,5 @@
       </ion-col>
     </ion-row>
     <br><br>
-  </ion-grid>
+  </ion-grid> -->
 </ion-content>

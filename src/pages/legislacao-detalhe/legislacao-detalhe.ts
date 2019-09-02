@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SocialSharing } from '@ionic-native/social-sharing';
+
 
 /**
  * Generated class for the LegislacaoDetalhePage page.
@@ -16,7 +18,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class LegislacaoDetalhePage {
   lei_detalhe:any;
   tipo:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private socialSharing: SocialSharing) {
     this.lei_detalhe = this.navParams.get('lei');
     this.tipo = this.navParams.get('tipo');
     if(this.tipo != "GERAL")
@@ -36,6 +38,11 @@ export class LegislacaoDetalhePage {
   {
     this.lei_detalhe = this.navParams.get('lei');
     // console.log(this.array_leis.conteudo);
+  }
+
+  compartilhar(link:string)
+  {
+    this.socialSharing.share(link, null, null, null);
   }
 
 }

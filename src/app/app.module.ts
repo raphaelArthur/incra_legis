@@ -8,6 +8,8 @@ import { MyApp } from './app.component';
 import { FiltroProvider } from '../providers/filtro/filtro';
 import { LinkExternoProvider } from '../providers/link-externo/link-externo';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { SocialSharing } from '@ionic-native/social-sharing';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FiltroProvider,
     LinkExternoProvider,
-    InAppBrowser
+    InAppBrowser,
+    SocialSharing
   ]
 })
 export class AppModule {}

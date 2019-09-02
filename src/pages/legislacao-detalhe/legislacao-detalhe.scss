@@ -1,13 +1,34 @@
 page-legislacao-detalhe {
-    background: rgb(181, 214, 181);
+    // background: rgb(181, 214, 181);
     ion-content {
         // background: $backgroundAzul;
         
     }
 
     .titulo{
+        // font-family: 'FuturaStd-Bold';
+        // font-size: 1.4em;
+        margin-top: 8%;
         font-family: 'FuturaStd-Bold';
+        /* text-align: center; */
+        font-size: 1.5em;
+        padding: 1% 5% !important;
+        color: white;
+    }
+
+    .subtitulo{
+        font-family: 'FuturaStd-Book';
+        /* text-align: center; */
+        font-size: 1.0em;
+        padding: 1% 5% !important;
+        color: white;
+    }
+
+    .icones{
         font-size: 1.4em;
+        color: white;
+        margin-bottom: 5%;
+        margin-top: 3%;
     }
 
     .label{
@@ -15,7 +36,7 @@ page-legislacao-detalhe {
         font-size: 1.2em;
     }
     a:link, a:visited{
-        color: orange;
+        color: white;
         font-size: 1.2em;
     }
     .tipo_desc{
@@ -28,6 +49,20 @@ page-legislacao-detalhe {
         font-family: 'FuturaStd-Bold';
         text-align: center;
         font-size: 1.2em;
+    }
+
+    .card-md {
+        background: rgb(239, 248, 234);
+        height: 90%;
+    }
+
+    .card-header {
+        text-align: center !important;
+        white-space: normal;
+    }
+
+    .background{
+        background: #388E3C;
     }
     
 }
