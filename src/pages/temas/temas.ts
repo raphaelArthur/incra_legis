@@ -5,8 +5,9 @@ import { Pages } from '../pages';
 import { FiltroProvider } from '../../providers/filtro/filtro';
 import { FormControl } from "@angular/forms";
 import { debounceTime } from "rxjs/operators";
+
 /**
- * Generated class for the SumarioMenuPage page.
+ * Generated class for the TemasPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -14,10 +15,10 @@ import { debounceTime } from "rxjs/operators";
 
 @IonicPage()
 @Component({
-  selector: 'page-sumario-menu',
-  templateUrl: 'sumario-menu.html',
+  selector: 'page-temas',
+  templateUrl: 'temas.html',
 })
-export class SumarioMenuPage {
+export class TemasPage {
 
   array_tipo:any;
   lista_geral: any;
@@ -50,6 +51,7 @@ export class SumarioMenuPage {
   }
 
   setFilteredItems(searchTerm) {
+    this.dataService.setLista(this.array_tipo);
     this.items = this.dataService.filterItems(searchTerm, "tipo");
     console.log(this.items);
   }
@@ -57,9 +59,16 @@ export class SumarioMenuPage {
   public navegar_detalhe(tipo:any)
   {
     let lista = this.lista_geral.filter(item => {
-      return item.conteudo.tipo.toLowerCase().indexOf(tipo.tipo.toLowerCase()) > -1;
+      for(let elem of item.conteudo.tipo)
+      {
+        return elem.toLowerCase().indexOf(tipo.tipo.toLowerCase()) > -1
+      }
+      // let temp = item.conteudo.tipo.filter(sub => {
+      //   return sub.toLowerCase().indexOf(tipo.tipo.toLowerCase()) > -1;
+      // })
+      // return item.conteudo.tipo.toLowerCase().indexOf(tipo.tipo.toLowerCase()) > -1;
     });
-    this.navCtrl.push(Pages.GeralLista, {lista_geral:lista, array_tipo:this.array_tipo, tipo:tipo.tipo});
+    this.navCtrl.push(Pages.LegislacaoLista, {lista_geral:lista, array_tipo:this.array_tipo, tipo:tipo.tipo});
   }
 
 }

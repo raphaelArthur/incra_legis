@@ -28,9 +28,11 @@ export class FiltroProvider {
     return this.items.filter(item => {
       if(key == "tipo")
       {
-        return item.tipo.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+        let elem = item.tipo.toLowerCase().replace(/[.,/-]/g,"");
+        return elem.indexOf(searchTerm.toLowerCase()) > -1;
       }
-      return item.conteudo[key].toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+      let elem = item.conteudo[key].toLowerCase().replace(/[.,/-]/g,"");
+      return elem.indexOf(searchTerm.toLowerCase()) > -1;
       // 
     });
   }

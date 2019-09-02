@@ -1,11 +1,11 @@
 <!--
-  Generated template for the GeralListaPage page.
+  Generated template for the LegislacaoListaPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
+  <ion-navbar> 
     <ion-title>{{titulo}}</ion-title>
     <ion-buttons end *ngIf="!flag_pag_geral">
       <button ion-button icon-only (click)="mostrar_info()">
@@ -31,27 +31,10 @@
     </div>
 
     <div *ngFor="let tipo of items; let i=index" [ngClass]="i%2==0 ? 'tabelaBg1':'tabelaBg2'">
-      <!-- <div *ngFor="let lei of tipo.conteudo.lei; let j=index" [ngClass]="(i+j)%2==0 ? 'tabelaBg1':'tabelaBg2'"> -->
         <ion-row justify-content-center (click)="navegar_detalhe(tipo)">
           <ion-col col-11 align-self-center>{{tipo.conteudo.lei}}</ion-col>
           <ion-col col-1 align-self-center><ion-icon name="arrow-dropright" class="icone"></ion-icon></ion-col>
         </ion-row>
-      <!-- </div> -->
     </div>
-
-    <!-- <ion-list>
-        <ion-item *ngFor="let item of items">
-          {{ item.title }}
-        </ion-item>
-      </ion-list> -->
-
-    <!-- <div *ngFor="let tipo of array_leis; let i=index">
-      <div *ngFor="let lei of tipo.conteudo.lei; let j=index" [ngClass]="(i+j)%2==0 ? 'tabelaBg1':'tabelaBg2'">
-        <ion-row justify-content-center (click)="navegar_detalhe(i,j)">
-          <ion-col col-11 align-self-center>{{lei}}</ion-col>
-          <ion-col col-1 align-self-center><ion-icon name="arrow-dropright" class="icone"></ion-icon></ion-col>
-        </ion-row>
-      </div>
-    </div> -->
   </ion-grid>
 </ion-content>

@@ -6,10 +6,8 @@ import { FiltroProvider } from '../../providers/filtro/filtro';
 
 import { FormControl } from "@angular/forms";
 import { debounceTime } from "rxjs/operators";
-
-
 /**
- * Generated class for the GeralListaPage page.
+ * Generated class for the LegislacaoListaPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -17,11 +15,11 @@ import { debounceTime } from "rxjs/operators";
 
 @IonicPage()
 @Component({
-  selector: 'page-geral-lista',
-  templateUrl: 'geral-lista.html',
+  selector: 'page-legislacao-lista',
+  templateUrl: 'legislacao-lista.html',
 })
-export class GeralListaPage {
-  // public array_leis:any;
+export class LegislacaoListaPage {
+
   public lista_geral:any;
 
   public searchControl: FormControl;
@@ -44,7 +42,7 @@ export class GeralListaPage {
 
     this.conteudo_modal = this.link.getItem(this.titulo);
 
-    if(this.titulo == "GERAL")
+    if(this.titulo == "GERAL" || this.titulo == "Faixa de domínio de rodovia" || this.titulo == "TAXA DE SERVIÇOS CADASTRAIS"|| this.titulo == "ADJUDICAÇÃO DE IMÓVEIS"|| this.titulo == "AGRICULTURA FAMILIAR" || this.titulo == "BANCO DA TERRA" || this.titulo =="COMPRA E VENDA DE IMÓVEIS PARA O PNRA" || this.titulo == "EXPROPRIAÇÃO POR CULTIVO DE PSICOTRÓPICO/ IMÓVEL PRODUTO DE ILÍCITO" || this.titulo == "PLANO NACIONAL DE JUVENTUDE RURAL" || this.titulo == "PROJETOS DE COLONIZAÇÃO" || this.titulo == "PROGRAMA DE FORTALECIMENTO DA AGRICULTURA FAMILIAR- PRONAF" || this.titulo == "PROGRAMA NACIONAL DE EDUCAÇÃO NA REFORMA AGRÁRIA"|| this.titulo == "REASSENTAMENTO DE NÃO ÍNDIOS")
     {
       this.flag_pag_geral = true;
     }
@@ -71,21 +69,11 @@ export class GeralListaPage {
 
   setFilteredItems(searchTerm) {
     this.items = this.dataService.filterItems(searchTerm, "lei");
-    // console.log(this.items);
   }
 
   public navegar_detalhe(lei:any)
   {
-    // console.log(index);
-    // let lei = {
-    //   ato:this.array_leis[idx_lei].conteudo.ato[idx_conteudo],
-    //   descricao:this.array_leis[idx_lei].conteudo.descricao[idx_conteudo],
-    //   leis:this.array_leis[idx_lei].conteudo.lei[idx_conteudo],
-    //   documento:this.array_leis[idx_lei].conteudo.link[idx_conteudo],
-    //   tipo:this.array_leis[idx_lei].conteudo.tipo
-    // };
-
-    this.navCtrl.push(Pages.SumarioDetalhe, {lei:lei});
+    this.navCtrl.push(Pages.LegislacaoDetalhe, {lei:lei, tipo:this.titulo});
   }
 
   public mostrar_info()

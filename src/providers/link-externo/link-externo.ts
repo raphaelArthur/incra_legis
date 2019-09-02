@@ -176,7 +176,7 @@ export class LinkExternoProvider {
         Criados em áreas ocupadas por populações tradicionais e tendo como principal característica a exploração integrada ao ecossistema local, os Projetos de Assentamento ambientalmente diferenciados têm regramento próprio de seleção, exploração e titulação.`,
       },
       {
-        nome:"REINTEGRAÇÃO DE POSSE DE TERRAS PÚBLICAS",
+        nome:"Reintegração de Posse de Terra Públicas",
         path_img:"assets/imgs/topico/reintegracao_de_posse.png",
         texto:`
         A ocupação de particular em bens públicos não configura posse, mas a mera detenção decorrente da tolerância ou permissão do Poder Público.

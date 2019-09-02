@@ -1,5 +1,5 @@
 <!--
-  Generated template for the SumarioDetalhePage page.
+  Generated template for the LegislacaoDetalhePage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -13,10 +13,10 @@
 <ion-content padding>
   <ion-grid>
     <ion-row>
-      <ion-col class="titulo">TIPO</ion-col>
+      <ion-col class="titulo">LEIS</ion-col>
     </ion-row>
     <ion-row>
-      <ion-col class="label">{{lei_detalhe.conteudo.tipo}}</ion-col>
+      <ion-col class="label">{{lei_detalhe.conteudo.lei}}</ion-col>
     </ion-row>
     <br><br>
     <ion-row>
@@ -26,20 +26,30 @@
       <ion-col class="label">{{lei_detalhe.conteudo.ato}}</ion-col>
     </ion-row>
     <br><br>
+    <ion-row class="titulo2">
+      <ion-col><b>TIPO</b></ion-col>
+      <ion-col><b>DESCRIÇÃO</b></ion-col>
+    </ion-row>
+    <ion-row><br></ion-row>
+    <ion-row *ngFor="let elem of lei_detalhe.conteudo.tipo; let i=index" class="tipo_desc" align-items-center>
+      <ion-col>{{lei_detalhe.conteudo.tipo[i]}}</ion-col>
+      <ion-col>{{lei_detalhe.conteudo.descricao[i]}}</ion-col>
+    </ion-row>
+    <!-- <ion-row>
+      <ion-col class="titulo">TIPO</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="label">{{lei_detalhe.conteudo.tipo}}</ion-col>
+    </ion-row>
+    <br><br>
     <ion-row>
       <ion-col class="titulo">DESCRIÇÃO</ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="label">{{lei_detalhe.conteudo.descricao}}</ion-col>
     </ion-row>
-    <br><br>
-    <ion-row>
-      <ion-col class="titulo">LEIS</ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class="label">{{lei_detalhe.conteudo.lei}}</ion-col>
-    </ion-row>
-    <br><br>
+    <br><br> -->
+    <br><br><br>
     <ion-row>
       <ion-col class="titulo">DOCUMENTO</ion-col>
     </ion-row>
