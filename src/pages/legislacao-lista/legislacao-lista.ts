@@ -19,24 +19,28 @@ import { debounceTime } from "rxjs/operators";
   templateUrl: 'legislacao-lista.html',
 })
 export class LegislacaoListaPage {
-
+  //Array recebido que contem as leis.
   public lista_geral:any;
 
   public searchControl: FormControl;
   public items: any;
+
+  //Titulo da página
   public titulo:string;
+
+  //Flag 
   public searching: any = false;
 
   public conteudo_modal:any;
   public flag_pag_geral:boolean;
 
   constructor(public navCtrl: Nav, public navParams: NavParams, private dataService:FiltroProvider, public link:LinkExternoProvider, public modalCtrl: ModalController) {
-    // this.array_leis = this.navParams.get('array_leis');
+    //Recebe variáveis da página anterior.
     this.lista_geral = this.navParams.get('lista_geral');
     let titulo_param = this.navParams.get('tipo');
 
     this.titulo = titulo_param || "GERAL";
-    // console.log(this.array_leis);
+    
     this.dataService.setLista(this.lista_geral);
     this.searchControl = new FormControl();
 
@@ -52,6 +56,9 @@ export class LegislacaoListaPage {
     }
   }
 
+  /**
+   * Instancia filtro
+   */
   ionViewDidLoad() {
     this.setFilteredItems("");
 
@@ -71,11 +78,19 @@ export class LegislacaoListaPage {
     this.items = this.dataService.filterItems(searchTerm, "lei");
   }
 
+  /**
+   * Navega até a página de detalhe, para mostrar as informações referentes a legislação escolhida.
+   * @param lei Lei a ser exibida na página de detalhe
+   */
   public navegar_detalhe(lei:any)
   {
     this.navCtrl.push(Pages.LegislacaoDetalhe, {lei:lei, tipo:this.titulo});
   }
 
+  /**
+   * Mostra a modal com a informação esclarecendo o que é a categoria em questão. 
+   * (Algumas páginas não possuem, pois não foram informadas)
+   */
   public mostrar_info()
   {
     let modal = this.modalCtrl.create('ModalInfoPage', {info:this.conteudo_modal});

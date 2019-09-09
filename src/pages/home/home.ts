@@ -25,6 +25,7 @@ interface tipo_lei{
 })
 
 export class HomePage {
+  //Variáveis que representam a coluna do CSV a ser lido.
   readonly tipo = 0;
   readonly data = 1;
   readonly ato = 2;
@@ -32,13 +33,17 @@ export class HomePage {
   readonly lei = 4;
   readonly link = 5;
 
+  //Carregar informações do CSV.
   csvData: any[] = [];
   headerRow: any[] = [];
 
+  //Array de leis
   array_leis:any = [];
+  //Array do tipo das leis;
   array_tipo:Array<tipo_lei> = [];
   num_tipo:number = 0;
 
+  //Lista das leis.
   lista_geral = [];
   lista_geral_ordenada = [];
 
@@ -51,30 +56,35 @@ export class HomePage {
 
   }
 
-  downloadRevista() {
-    const confirm = this.alertCtrl.create({
-      title: 'Deseja fazer o download da "Revista de Direito Agrário"?',
-      // message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
-      buttons: [
-        {
-          text: 'Não',
-          handler: () => {
-            console.log('Disagree clicked');
-          }
-        },
-        {
-          text: 'Sim',
-          handler: () => {
-            console.log('Agree clicked');
-            const browser = this.iab.create('http://www.incra.gov.br/sites/default/files/uploads/publicacoes/revista_de_direito_agrario_-_no_22_-_ed._especial_30_anos_da_cf_de_1988_-_web.pdf');
-            browser.show();
-          }
-        }
-      ]
-    });
-    confirm.present();
-  }
 
+  // downloadRevista() {
+  //   const confirm = this.alertCtrl.create({
+  //     title: 'Deseja fazer o download da "Revista de Direito Agrário"?',
+  //     // message: 'Do you agree to use this lightsaber to do good across the intergalactic galaxy?',
+  //     buttons: [
+  //       {
+  //         text: 'Não',
+  //         handler: () => {
+  //           console.log('Disagree clicked');
+  //         }
+  //       },
+  //       {
+  //         text: 'Sim',
+  //         handler: () => {
+  //           console.log('Agree clicked');
+  //           const browser = this.iab.create('http://www.incra.gov.br/sites/default/files/uploads/publicacoes/revista_de_direito_agrario_-_no_22_-_ed._especial_30_anos_da_cf_de_1988_-_web.pdf');
+  //           browser.show();
+  //         }
+  //       }
+  //     ]
+  //   });
+  //   confirm.present();
+  // }
+
+  /***
+   * Função que lê o arquivo: base_local_geral.csv que é a planilha de excel no formato CSV que contém as informações
+   * a serem apresentadas em tela.
+   */
   public readCsvData() {
     return new Promise ((resolve) => {
       this.http.get('assets/base_local_geral.csv')
@@ -86,6 +96,9 @@ export class HomePage {
     });
   }
 
+  /***
+   * Função que recebe o arquivo CSV e processa as informações.
+   */
   private extractData(res) {
     let csvData = res['_body'] || '';
     let parsedData = papa.parse(csvData, {delimiter:";"}).data;
@@ -98,6 +111,7 @@ export class HomePage {
     // console.log(this.csvData);
     var contador = 0;
 
+    //Valor da prioridade de cada tipo de lei
     let dicionario = [
       {chave:"orientação", valor:0},
       {chave:"resolução", valor:0},
@@ -117,6 +131,7 @@ export class HomePage {
       
       // {chave:"outros", valor:30},
     ]
+    //Monta as linhas do CSV como objeto para ser processado.
     for(let i = 0; i < this.csvData.length; i++)
     {
       let prioridade = 0;
@@ -163,6 +178,9 @@ export class HomePage {
     this.ordenarListaGeral();
   }
 
+  /**
+   * Função que ordena a lista de leis a partir de sua prioridade e data de publicação.
+   */
   private ordenarListaGeral()
   {
 
@@ -186,6 +204,10 @@ export class HomePage {
     this.agruparLista();
   }
 
+  /**
+   * Função que agrupam as leis, pois uma lei pode pertecem a mais de um tipo, e assim aparecer duplicada na lista
+   * geral.
+   */
   private agruparLista()
   {
     let lista_bkp = this.lista_geral_ordenada;
@@ -224,10 +246,18 @@ export class HomePage {
     console.log(this.lista_geral_ordenada)
   }
 
+  /**
+   * Emite erro no console.
+   * @param err Erro da leitura do CSV
+   */
   private handleError(err) {
     console.log('something went wrong: ', err);
   }
 
+  /**
+   * Função de navegação.
+   * @param pagina String que contem o nome da classe da página que se deseja navegar.
+   */
   private navegar(pagina:any)
   {
     if(pagina == "TemasPage" || pagina == "LegislacaoListaPage")
