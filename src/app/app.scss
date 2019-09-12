@@ -63,3 +63,8 @@ body {
     font-weight: normal;
     font-style: normal;
   }
+
+  .ion-md-www::before {
+    content: url(../assets/icon/www_icon_white.png);
+    position: relative;
+  }

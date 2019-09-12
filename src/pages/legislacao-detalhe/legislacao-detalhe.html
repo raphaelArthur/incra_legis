@@ -18,10 +18,13 @@
     <ion-row>
       <ion-col class="subtitulo">{{lei_detalhe.conteudo.ato}}</ion-col>
     </ion-row>
-    <ion-row class="icones">
+    <ion-row class="icones" align-items-center>
       <ion-col offset-9 col-2>
-          <a href="{{lei_detalhe.conteudo.link}}" target="_blank">
-            <ion-icon name="globe"></ion-icon></a></ion-col>
+        <a href="{{lei_detalhe.conteudo.link}}" target="_blank">
+          <!-- <ion-icon name="www"></ion-icon> -->
+          <img src="../../assets/icon/www_icon_white.png">
+        </a>
+      </ion-col>
       <ion-col col-1 (click)="compartilhar(lei_detalhe.conteudo.link)"><ion-icon name="share"></ion-icon></ion-col>
     </ion-row>
   </ion-grid>

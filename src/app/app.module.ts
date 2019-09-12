@@ -19,7 +19,11 @@ import { SocialSharing } from '@ionic-native/social-sharing';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,
+      {
+        mode: 'md', 
+      }  
+    ),
     // InAppBrowser
   ],
   bootstrap: [IonicApp],
